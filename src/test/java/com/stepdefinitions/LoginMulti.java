@@ -19,19 +19,18 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class Login extends BaseClass {
+public class LoginMulti extends BaseClass {
 
 	@Before
 	public static void setup() throws IOException {
-		logger = Logger.getLogger("Demo Guru");
+		logger = Logger.getLogger("DemoGuru");
 		PropertyConfigurator.configure("log4j.properties");
 
 		// Load properties file
 		try {
 			configProp = new Properties();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println(e);
 		}
 		FileInputStream configPropfile = new FileInputStream("Configuration.properties");
 		configProp.load(configPropfile);
@@ -68,8 +67,8 @@ public class Login extends BaseClass {
 	}
 
 	@And("User entered the username as {string}")
-	public void user_entered_the_username_as(String UserId) {
-		lp.setUser(UserId);
+	public void user_entered_the_username_as(String User) {
+		lp.setUser(User);
 
 	}
 
@@ -98,4 +97,5 @@ public class Login extends BaseClass {
 	public void close_the_browser() {
 		driver.quit();
 	}
+
 }

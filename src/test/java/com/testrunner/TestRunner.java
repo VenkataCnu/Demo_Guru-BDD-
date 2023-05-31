@@ -8,10 +8,10 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions
 	(
-		features = "./Features\\Login.feature", 
+		features = {"Features"}, 
 		dryRun = false, 
 		monochrome = true, 
-		glue = "com.stepdefinitions//Login", 
+		glue = "com.stepdefinitions.Login", 
 		plugin = {"pretty", "html:test-output" }
 	)
 
